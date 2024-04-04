@@ -46,11 +46,11 @@ const UserController = {
 
     async login(req, res){
         // login
-        const {email, password} = req.body;
+        const {userName, password} = req.body;
 
         try{
-            const user = await User.findOne({email});
-            console.log(user)
+            const user = await User.findOne({userName});
+            console.log(user);
             if(!user){
                return res.status(401).json({message: "Invalid credentials!"}); 
             }
