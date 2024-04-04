@@ -1,5 +1,6 @@
 const express = require('express');
 const { UserController } = require('../Controllers/user.controller');
+const { authenticate } = require('../Middlewares/authenticate');
 
 const userRoute = express.Router();
 
@@ -10,16 +11,16 @@ userRoute.post('/register', UserController.register);
 userRoute.post('/login', UserController.login);
 
 // get user profile
-userRoute.get('/profile', UserController.getProfile);
+userRoute.get('/profile', authenticate, UserController.getProfile);
 
 // update user profile
-userRoute.patch('/profile', UserController.updateProfile);
+userRoute.patch('/profile', authenticate, UserController.updateProfile);
 
 // change password
-userRoute.patch('/change-password', UserController.changePassword);
+userRoute.patch('/change-password', authenticate, UserController.changePassword);
 
 // logout user
-userRoute.post('/logout', UserController.logout);
+userRoute.post('/logout', authenticate, UserController.logout);
 
 
 module.exports = { userRoute };
