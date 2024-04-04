@@ -12,4 +12,6 @@
 - Mongoose
 - Mongodb Atlas
 - Cors
+- dotenv
+- bcrypt
 - JSON Web Token
