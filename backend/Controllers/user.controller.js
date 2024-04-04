@@ -79,19 +79,93 @@ const UserController = {
 
     async getProfile(req, res){
         // get profile
+        try{
+            const userID = req.user.userID;
+            // console.log(req.user);
+            const user = await User.findById(userID);
+            // console.log(user);
 
-        
+            if(!user){
+                return res.status(404).json({message: "User not found!"});
+            }
+
+            res.status(200).json(user);
+        }catch(err){
+            res.status(500).json({message: "Internal server error"});
+        }
+
     },
 
     async updateProfile(req, res){
         // update profile
+        try{
+            const userID = req.user.userID;
+            const {fullName, avatar} = req.body;
+
+            const updatedUser = await User.findByIdAndUpdate(userID, {fullName, avatar }, {new: true});
+
+            if(!updatedUser){
+                return res.status(404).json({message: 'User not found!'});
+            }
+
+            res.status(200).json(updatedUser);
+
+        }catch(err){
+            res.status(500).json({message: 'Internal server error'});
+        }
     },
 
     async changePassword(req, res){
         // change password
+        try{
+            const userID = req.user.userID;
+            const {oldPassword, newPassword} = req.body;
+
+            const user = await User.findById(userID);
+            
+
+            if(!user){
+                return res.status(404).json({message: "User not found!"});
+            }
+
+            const isPasswordValid = await bcrypt.compare(oldPassword, user.password);
+
+            if(!isPasswordValid){
+                return res.status(404).json({
+                    message: "User not found"
+                });
+            }
+
+            bcrypt.hash(newPassword, 8, async (err, hash)=>{
+                if(err)
+                    throw err;
+
+                user.password = hash;
+                await user.save();
+    
+                res.status(200).json({
+                    message: "Password updated successfully!"
+                });
+
+            });
+
+           
+      
+        }catch(err){
+            res.status(500).json({message: err.message});
+        }
     },
     async logout(req, res){
         // logout
+        try{
+            res.status(200).json({
+                message: "Logout successful"
+            });
+        }catch(err){
+            res.status(500).json({
+                message: "Internal server error"
+            });
+        }
     }
 }
 
