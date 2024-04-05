@@ -115,7 +115,7 @@ export const Navbar = () =>{
                             </MenuButton>
                             <Portal>
                                 <MenuList>
-                                    <MenuItem>My Store</MenuItem>
+                                    <MenuItem onClick={()=>navigate('/mystore')}>My Store</MenuItem>
                                     <MenuItem onClick={()=>navigate('/profile')}>Profile</MenuItem>
                                     <MenuItem onClick={handleLogout}>Logout</MenuItem>
                                     
