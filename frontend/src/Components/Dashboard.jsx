@@ -3,7 +3,7 @@ import { Box } from "@chakra-ui/react";
 import { Products } from "../Components/Products";
 import { useEffect, useState } from "react";
 
-const getProducts = async()=>{
+export const getProducts = async()=>{
     const token = localStorage.getItem('token');
     const res = await fetch(`http://localhost:8080/product`,{
         headers:{
@@ -21,7 +21,7 @@ export const Dashboard = () =>{
         const data = getProducts();
         data.then(res=>{
             // console.log(res);
-            setProducts(res);
+            setProducts(res.slice(0, 8));
         }).catch(err=>{
             console.log(err);
         })
@@ -29,9 +29,9 @@ export const Dashboard = () =>{
     }, [products])
 
     return (
-        <>
-            <Carousel />
-            <Products data={products} />
-        </>
+        <Box>
+            {/* <Carousel /> */}
+            <Products products={products} />
+        </Box>
     )
 }

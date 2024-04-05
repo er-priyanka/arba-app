@@ -15,8 +15,13 @@ const UserController = {
 
         try{
 
-            const existingUser = await User.findOne({email});
-            if(existingUser){
+            const existingUserByUsername = await User.findOne({userName});
+            if(existingUserByUsername){
+                return res.status(400).json({message: "Username is already exist!"});
+            }
+
+            const existingUserByEmail = await User.findOne({email});
+            if(existingUserByEmail){
                 return res.status(400).json({message: "Email is already exist!"});
             }
 

@@ -1,8 +1,8 @@
-
-
-import { Box, Flex, Stack, Input, Text, Heading, useToast, Link } from "@chakra-ui/react";
+import { Box, Flex, Stack, Input, Text, Heading, useToast, Link, Image } from "@chakra-ui/react";
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
+import authImage from "../Images/auth_ui.png";
+
 
 const iniState = {
     userName: '',
@@ -10,6 +10,15 @@ const iniState = {
     email: '',
     password: '',
     confirmPassword: ''
+}
+
+const inputStyleProps = {
+    borderRadius: 0,
+    colorScheme: "whiteAlpha",
+    border: "0px",
+    borderBottom: "1px",
+    bgColor:"white",
+    marginTop:"20px"
 }
 
 const postData = async(user)=>{
@@ -59,27 +68,46 @@ export const Signup = () =>{
     }
 
     return (
-        <Box>
-            <Flex>
-                <Box>
-                    Image
+        <Box w="100%">
+            <Flex
+            justifyContent='center'
+            // marginTop="30px"
+            >
+                <Box 
+                w="40%"
+                // border='1px'
+                >
+                    <Image w="100%" height="100vh" src={authImage} />
                 </Box>
-                <Box>
-                    <Stack>
+                <Box
+                w="60%"
+                padding="40px 10px"
+                >
+                    <Stack
+                    w="50%"
+                    m='auto' 
+                    textAlign='left'
+                    >
                         <form onSubmit={handleSubmit}>
                             <Box></Box>
-                            <Heading>APP NAME</Heading>
-                            <Text>lorem ipsum dolor sit amet, consecteur adipiscing elit.</Text>
-                            <Input name="userName" value={user.userName} onChange={handleChange} placeholder="Username" type="text" />
-                            <Input name="fullName" value={user.fullName} onChange={handleChange} placeholder="Fullname" type='text' />
-                            <Input name='email' value={user.email} onChange={handleChange} placeholder='Email' type='email' />
-                            <Input name="password" value={user.password} onChange={handleChange} placeholder="Password" type="password" />
-                            <Input name='confirmPassword' value={user.confirmPassword} onChange={handleChange} placeholder="Confirm password" type='password' />
-                            <Input  type="submit" value="Register" />
+                            <Heading  textAlign={'center'} >APP NAME</Heading>
+                            <Text textAlign={'center'}>lorem ipsum dolor sit amet, consecteur adipiscing elit.</Text>
+                            <Input {...inputStyleProps} name="userName" value={user.userName} onChange={handleChange} placeholder="Username" type="text" />
+                            <Input {...inputStyleProps} name="fullName" value={user.fullName} onChange={handleChange} placeholder="Fullname" type='text' />
+                            <Input {...inputStyleProps} name='email' value={user.email} onChange={handleChange} placeholder='Email' type='email' />
+                            <Input {...inputStyleProps} name="password" value={user.password} onChange={handleChange} placeholder="Password" type="password" />
+                            <Input {...inputStyleProps} name='confirmPassword' value={user.confirmPassword} onChange={handleChange} placeholder="Confirm password" type='password' />
+                            <Input 
+                            bgColor={'blue.600'}
+                            marginTop="40px"
+                            color="white" 
+                             type="submit" value="Register" />
                             
                         </form>
 
-                        <Text>
+                        <Text
+                        marginTop="20px"
+                        >
                             Already have an account? <Link href="/login">Login</Link>
                         </Text>
                         

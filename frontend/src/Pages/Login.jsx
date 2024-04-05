@@ -1,6 +1,8 @@
-import { Box, Flex, Stack, Input, Text, Heading, Link, useToast } from "@chakra-ui/react";
+import { Box, Flex, Stack, Input, Image, Text, Heading, Link, useToast } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom';
+import authImage from "../Images/auth_ui.png";
+
 
 
 const iniState = {
@@ -19,6 +21,15 @@ const postData = async(user)=>{
 
     const data = await res.json();
     return data;
+}
+
+const inputStyleProps = {
+    borderRadius: 0,
+    colorScheme: "whiteAlpha",
+    border: "0px",
+    borderBottom: "1px",
+    bgColor:"white",
+    marginTop:"20px"
 }
 
 export const Login = () =>{
@@ -63,24 +74,45 @@ export const Login = () =>{
     }, [])
 
     return (
-        <Box>
-            <Flex>
-                <Box>
-                    Image
+        <Box w="100%">
+            <Flex 
+            justifyContent='center'
+            // marginTop="30px"
+            >
+                <Box 
+                w="40%"
+                // border='1px'
+                >
+                    <Image w="100%" height="100vh" src={authImage} />
                 </Box>
-                <Box>
-                    <Stack>
+                <Box 
+                w="60%"
+                padding="40px 10px"
+                >
+                    <Stack
+                    w="50%"
+                    m='auto'  
+                    textAlign='left'
+                    >
                         <form onSubmit={handleSubmit}>
                             <Box></Box>
-                            <Heading>APP NAME</Heading>
-                            <Text>lorem ipsum dolor sit amet, consecteur adipiscing elit.</Text>
-                            <Input name="userName" value={user.userName} onChange={handleChange} placeholder="Username" type="text" />
-                            <Input name="password" value={user.password} onChange={handleChange} placeholder="Password" type="password" />
-                            <Input  type="submit" value="Login" />
+                            <Heading
+                            textAlign={'center'} 
+                            >APP NAME</Heading>
+                            <Text textAlign={'center'}>lorem ipsum dolor sit amet, consecteur adipiscing elit.</Text>
+                            <Input {...inputStyleProps} name="userName" value={user.userName} onChange={handleChange} placeholder="Username" type="text" />
+                            <Input {...inputStyleProps} name="password" value={user.password} onChange={handleChange} placeholder="Password" type="password" />
+                            <Input
+                            bgColor={'blue.600'}
+                            marginTop="40px"
+                            color='white'
+                            type="submit" value="Login" />
                             
                         </form>
                         
-                        <Text>
+                        <Text 
+                        marginTop="20px"
+                        >
                             Don't have an account? <Link href="/signup">Sign up</Link>
                         </Text>
 
