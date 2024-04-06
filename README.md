@@ -6,6 +6,9 @@ An e-commerce app that provides e-commerce services.
 
 **Backend** https://arba-backend-2-0j6p.onrender.com/
 
+## Use this credentials to see the flow
+username: er_piyu
+password: 1234
 
 ## Tech Stack:
 
@@ -125,12 +128,35 @@ npm run start
 **profile**
 ![profile ](/frontend/src/Images/profilePage.png)
 
+**Update Profile**
+![Product Table ](/frontend/src/Images/updateProfile.png)
+
 **Change password Modal**
 ![Change Password ](/frontend/src/Images/changePassword.png)
 
 **Category Table**
 ![Categoies Table ](/frontend/src/Images/categories.png)
 
+**Product Table**
+![Product Table ](/frontend/src/Images/storeProducts.png)
+
 **Add Product**
 ![Product Table ](/frontend/src/Images/addProduct.png)
+
+**Add Category**
+![Product Table ](/frontend/src/Images/addCategory.png)
+
+**Update Category**
+![Update Category ](/frontend/src/Images/updateCategory.png)
+
+**Add Product**
+![Add Product ](/frontend/src/Images/addProduct.png)
+
+**Update Product**
+![Update Product ](/frontend/src/Images/addProduct.png)
+
+**Cart**
+![Cart ](/frontend/src/Images/cart.png)
+
+
 
