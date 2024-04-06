@@ -12,7 +12,7 @@ import {
     
 } from "@chakra-ui/react";
 
-export const TCModal = ({isOpen, onClose})=>{
+export const TCModal = ({isOpen, onClose, handleTC})=>{
     // const { isOpen, onOpen, onClose } = useDisclosure();
 
     return (
@@ -36,7 +36,7 @@ export const TCModal = ({isOpen, onClose})=>{
             <Button colorScheme='blue' mr={3} onClick={onClose}>
               Cancel
             </Button>
-            <Button variant='ghost'>Accept</Button>
+            <Button variant='ghost' onClick={handleTC}>Accept</Button>
           </ModalFooter>
         </ModalContent>
       </Modal>

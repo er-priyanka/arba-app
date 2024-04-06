@@ -18,6 +18,7 @@ import { Box,
 import { useEffect, useState } from "react";
 import { getProfile } from "../Components/Navbar";
 import { TCModal } from "../Components/TCModal";
+import { acceptTC } from "../Components/Dashboard";
 
 
 const buttonStyleProps = {
@@ -103,6 +104,11 @@ export const Profile = () =>{
         onOpen();
     }
 
+    const handleTC = ()=>{
+        acceptTC();
+        onClose();
+      }  
+
     const handleChangePassword = (e)=>{
         const {name, value} = e.target;
         setPassword({...password, [name]: value});
@@ -173,7 +179,7 @@ export const Profile = () =>{
             </Flex>
 
             {/* Term & conditions modal */}
-            <TCModal isOpen={value =='tc_modal' && isOpen} onClose={onClose} />
+            <TCModal handleTC={handleTC} isOpen={value =='tc_modal' && isOpen} onClose={onClose} />
              
              {/* update profile modal */}
             <Modal blockScrollOnMount={false} isOpen={value =='update_profile' && isOpen} onClose={onClose}>
