@@ -57,6 +57,8 @@ export const AddProductModal = ({categories, id, isOpen, onClose})=>{
                 status: 'success',
                 isClosable: true
             });
+            
+            
         }).catch(err=>{
             toast({
                 title: err.message,
@@ -64,6 +66,9 @@ export const AddProductModal = ({categories, id, isOpen, onClose})=>{
                 isClosable: true
             });
         })
+        setProduct(iniState);
+        onClose();
+        
     }
 
     // useEffect(()=>{

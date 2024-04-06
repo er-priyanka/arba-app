@@ -106,6 +106,7 @@ export const Login = () =>{
                             bgColor={'blue.600'}
                             marginTop="40px"
                             color='white'
+                            cursor='pointer'
                             type="submit" value="Login" />
                             
                         </form>

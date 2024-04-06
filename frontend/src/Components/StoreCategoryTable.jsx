@@ -14,7 +14,7 @@ import {
     useToast,
     useDisclosure,
  } from "@chakra-ui/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { UpdateCategoryModal } from "./UpdateCategoryModal";
 import { getData } from "../Pages/MyStore";
 import { AddCategoryModal } from "./AddCategory";
@@ -65,7 +65,15 @@ export const StoreCategoryTable = ({data})=>{
         onOpen();
     }
 
-   
+    const handleRefresh = ()=>{
+        const getCategory = getData("category");
+        getCategory.then(res=>{
+            console.log('category',res);
+            setCategories(res);
+        }).catch(err=>{
+            console.log(err);
+        });
+    }
 
 
     
@@ -84,17 +92,21 @@ export const StoreCategoryTable = ({data})=>{
                 isClosable: true
             });
         })
+
+        handleRefresh();
     }
 
-    const handleRefresh = ()=>{
-        const getCategory = getData("category");
-        getCategory.then(res=>{
-            console.log('category',res);
+    useEffect(()=>{
+        const getCategories = getData("category");
+        getCategories.then(res=>{
+            // console.log('category' , res);
             setCategories(res);
         }).catch(err=>{
             console.log(err);
-        });
-    }
+        })
+    }, [category])
+
+    
     // console.log(data);
 
     return (
@@ -145,7 +157,7 @@ export const StoreCategoryTable = ({data})=>{
                     </Thead>
                     <Tbody>
                         {
-                            data && data.map((item, i)=>(
+                            category && category.map((item, i)=>(
                                 <Tr  key={i}>
                                     <Td border="1px">
                                         <Image 

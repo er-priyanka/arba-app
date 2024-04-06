@@ -1,5 +1,6 @@
 import { Box } from "@chakra-ui/react";
 import { Dashboard } from "../Components/Dashboard";
+import { Navbar } from "../Components/Navbar";
 
 
 

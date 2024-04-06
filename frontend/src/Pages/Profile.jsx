@@ -140,7 +140,7 @@ export const Profile = () =>{
         }).catch(err=>{
             console.log(err);
         })
-    }, [profile]);
+    }, []);
 
     return (
         <Box>

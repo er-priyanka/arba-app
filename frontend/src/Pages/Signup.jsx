@@ -100,8 +100,9 @@ export const Signup = () =>{
                             <Input 
                             bgColor={'blue.600'}
                             marginTop="40px"
-                            color="white" 
-                             type="submit" value="Register" />
+                            color="white"
+                            cursor='pointer' 
+                            type="submit" value="Register" />
                             
                         </form>
 

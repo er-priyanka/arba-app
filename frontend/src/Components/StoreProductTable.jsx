@@ -14,7 +14,7 @@ import {
     useToast,
     useDisclosure,
  } from "@chakra-ui/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { UpdateProductModal } from "./UpdateProductModal";
 import { getData } from "../Pages/MyStore";
 import { AddProductModal } from "./AddProduct";
@@ -66,7 +66,15 @@ export const StoreProductTable = ({data, categories})=>{
     }
 
    
-
+    const handleRefresh = ()=>{
+        const getProducts = getData("product");
+        getProducts.then(res=>{
+            console.log('product',res);
+            setProducts(res);
+        }).catch(err=>{
+            console.log(err);
+        });
+    }
 
     
 
@@ -84,18 +92,23 @@ export const StoreProductTable = ({data, categories})=>{
                 isClosable: true
             });
         })
+
+        handleRefresh();
     }
 
-    const handleRefresh = ()=>{
+    
+    // console.log(data);
+
+    useEffect(()=>{
         const getProducts = getData("product");
         getProducts.then(res=>{
-            console.log('product',res);
+            // console.log('category' , res);
             setProducts(res);
         }).catch(err=>{
             console.log(err);
-        });
-    }
-    // console.log(data);
+        })
+        
+    }, [products])
 
     return (
         <Box>

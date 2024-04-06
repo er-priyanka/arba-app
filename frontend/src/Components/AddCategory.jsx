@@ -61,6 +61,9 @@ export const AddCategoryModal = ({isOpen, onClose})=>{
                 isClosable: true
             });
         })
+
+        setCategory(iniState);
+        onClose();
     }
 
     // useEffect(()=>{

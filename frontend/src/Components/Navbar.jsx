@@ -32,6 +32,7 @@ export const getProfile = async() =>{
 }
 
 export const Navbar = () =>{
+    const [token, setToken] = useState(null);
     const [profile, setProfile] = useState({});
     const navigate = useNavigate();
     const toast = useToast();
@@ -40,6 +41,7 @@ export const Navbar = () =>{
     const handleLogout = ()=>{
         logout().then(res=>{
             console.log(res);
+            setToken(null);
             toast({
                 title: res.message,
                 status: 'success',
@@ -57,12 +59,16 @@ export const Navbar = () =>{
 
 
     useEffect(()=>{
+        const getToken = localStorage.getItem('token');
+        setToken(getToken);
         getProfile().then(res=>{
+            const getToken = localStorage.getItem('token');
+            setToken(getToken);
             setProfile(res);
         }).catch(err=>{
             console.log(err);
         })
-    }, []);
+    }, [token]);
 
     return (
         <Box
@@ -89,10 +95,11 @@ export const Navbar = () =>{
                 >
                     <Text>Logo</Text>
                 </Box>
+
                 <Flex 
                 gap="20px"
                 alignItems='center'
-                
+               
                 >
                     <BsCartFill
                      color="#00ABC5"

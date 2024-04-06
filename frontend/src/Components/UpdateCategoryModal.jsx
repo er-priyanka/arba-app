@@ -73,7 +73,10 @@ export const UpdateCategoryModal = ({id, isOpen, onClose})=>{
                 status: "error",
                 isClosable: true
             });
-        })
+        });
+
+        // setCategory(iniState);
+        onClose();
     }
 
     useEffect(()=>{

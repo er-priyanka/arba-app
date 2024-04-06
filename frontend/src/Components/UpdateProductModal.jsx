@@ -75,7 +75,10 @@ export const UpdateProductModal = ({categories, id, isOpen, onClose})=>{
                 status: "error",
                 isClosable: true
             });
-        })
+        });
+
+        // setProduct(iniState);
+        onClose();
     }
 
     useEffect(()=>{
