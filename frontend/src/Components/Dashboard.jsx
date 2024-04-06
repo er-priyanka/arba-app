@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 
 export const getProducts = async()=>{
     const token = localStorage.getItem('token');
-    const res = await fetch(`http://localhost:8080/product`,{
+    const res = await fetch(`https://arba-backend-2-0j6p.onrender.com/product`,{
         headers:{
             'Authorization': token
         }
@@ -21,7 +21,7 @@ export const Dashboard = () =>{
         const data = getProducts();
         data.then(res=>{
             // console.log(res);
-            setProducts(res.slice(0, 8));
+            setProducts((res.length > 8) ? res.slice(0, 8): res);
         }).catch(err=>{
             console.log(err);
         })

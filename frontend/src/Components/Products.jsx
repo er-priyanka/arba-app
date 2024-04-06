@@ -4,7 +4,7 @@ import {useNavigate} from "react-router-dom";
 const cartArray = JSON.parse(localStorage.getItem('cart')) || [];
 
 
-export const Products = ({products}) => {
+export const  Products = ({products}) => {
     const navigate = useNavigate();
     const toast = useToast();
 
@@ -47,7 +47,7 @@ export const Products = ({products}) => {
 
            
             {
-                (products)
+                (products.length !== 0)
                 ?
                 <Box 
                 w="90%"
@@ -112,9 +112,24 @@ export const Products = ({products}) => {
                 </Box>
                 : (
                     <Box>
-                        <Text>
-                            No Products Found
-                        </Text>
+                        <Box
+                        minH='100vh'
+                        display='flex'
+                        flexDir='column'
+                        gap='20px'
+                        justifyContent='center'
+                        alignItems='center'
+                        // border='1px'
+                        >
+                           
+                            <Text
+                            fontSize='2rem'
+                            fontWeight='bold'
+                            color="gray"
+                            >
+                                No Product found
+                            </Text>
+                        </Box>
                     </Box>
                 )
                     

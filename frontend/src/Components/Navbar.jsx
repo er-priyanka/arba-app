@@ -7,7 +7,7 @@ const avatar = "https://www.transparentpng.com/thumb/user/gray-user-profile-icon
 
 const logout = async()=>{
     const token = localStorage.getItem('token');
-    const res = await fetch(`http://localhost:8080/auth/logout`, {
+    const res = await fetch(`https://arba-backend-2-0j6p.onrender.com/auth/logout`, {
         method: 'POST',
         headers: {
             'Authorization': token
@@ -21,7 +21,7 @@ const logout = async()=>{
 
 export const getProfile = async() =>{
     const token = localStorage.getItem('token');
-    const res = await fetch(`http://localhost:8080/auth/profile`, {
+    const res = await fetch(`https://arba-backend-2-0j6p.onrender.com/auth/profile`, {
         headers: {
             'Authorization': token
         }

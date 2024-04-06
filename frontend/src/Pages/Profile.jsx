@@ -30,7 +30,7 @@ const buttonStyleProps = {
 // update profile
 const postData = async (user) =>{
     const token = localStorage.getItem('token');
-    const res = await fetch(`http://localhost:8080/auth/profile`, {
+    const res = await fetch(`https://arba-backend-2-0j6p.onrender.com/auth/profile`, {
         method: 'PATCH',
         headers: {
             'Content-Type': 'application/json',
@@ -46,7 +46,7 @@ const postData = async (user) =>{
 // change password
 const postChangePassword = async (user) =>{
     const token = localStorage.getItem('token');
-    const res = await fetch(`http://localhost:8080/auth/change-password`, {
+    const res = await fetch(`https://arba-backend-2-0j6p.onrender.com/auth/change-password`, {
         method: 'PATCH',
         headers: {
             'Content-Type': 'application/json',
@@ -134,7 +134,7 @@ export const Profile = () =>{
         }).catch(err=>{
             console.log(err);
         })
-    }, []);
+    }, [profile]);
 
     return (
         <Box>

@@ -11,7 +11,7 @@ const iniState = {
 }
 
 const postData = async(user)=>{
-    const res = await fetch(`http://localhost:8080/auth/login`, {
+    const res = await fetch(`https://arba-backend-2-0j6p.onrender.com/auth/login`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

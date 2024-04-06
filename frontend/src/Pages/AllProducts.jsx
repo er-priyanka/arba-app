@@ -52,7 +52,8 @@ export const AllProducts = () => {
             fontSize='1.5rem'
             >Products</Heading>
 
-            <Grid
+            {(products.length !== 0)
+            ? <Grid
             w="90%"
             margin='60px auto'
             templateColumns={{sm:'repeat(2, 1fr)', lg:'repeat(4, 1fr)'}}
@@ -60,8 +61,7 @@ export const AllProducts = () => {
             textAlign={'left'}
             >
                 {
-                    (products.length !== 0)
-                    ? products && products.map((item, i) =>(
+                    products && products.map((item, i) =>(
                         <GridItem key={i}
                         position='relative'
                         // border="1px"
@@ -101,15 +101,33 @@ export const AllProducts = () => {
                         </GridItem>
                     ))
 
-                    : (
-                        <Box>
-                            <Text>
-                                No Products Found
-                            </Text>
-                        </Box>
-                    )
+                    
                 }
             </Grid>
+            : (
+                        <Box >
+                            <Box
+                            minH='100vh'
+                            display='flex'
+                            flexDir='column'
+                            gap='20px'
+                            justifyContent='center'
+                            alignItems='center'
+                            margin='auto'
+                            // border='1px'
+                            >
+                            
+                                <Text
+                                fontSize='2rem'
+                                fontWeight='bold'
+                                color="gray"
+                                textAlign='center'
+                                >
+                                    No Product found
+                                </Text>
+                            </Box>
+                    </Box>
+                    )}
         </Box>
     )
 }

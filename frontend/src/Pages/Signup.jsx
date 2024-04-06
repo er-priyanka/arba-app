@@ -22,7 +22,7 @@ const inputStyleProps = {
 }
 
 const postData = async(user)=>{
-    const res = await fetch(`http://localhost:8080/auth/register`, {
+    const res = await fetch(`https://arba-backend-2-0j6p.onrender.com/auth/register`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
