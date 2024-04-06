@@ -3,6 +3,7 @@ An e-commerce app that provides e-commerce services.
 
 ## Deployed Link
 **Frontend** https://arba-app-phi.vercel.app/
+
 **Backend** https://arba-backend-2-0j6p.onrender.com/
 
 
@@ -124,7 +125,7 @@ npm run start
 **profile**
 ![profile ](/frontend/src/Images/profilePage.png)
 
-**Update password Modal**
+**Change password Modal**
 ![Change Password ](/frontend/src/Images/changePassword.png)
 
 **Category Table**
