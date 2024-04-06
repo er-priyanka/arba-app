@@ -16,7 +16,7 @@ password: 1234
 
 - React.Js
 - Chakra UI
-- React-router-dom(v5)
+- React-router-dom
 
 ### Backend:
 
